@@ -12,6 +12,7 @@ export const MyForm: React.FC = () => {
   };
 
   const submitValue = () => {
+    if(!arrayData.length) return;
     setArrayData(removeDuplicateFromArray(arrayData));
   };
 
@@ -31,8 +32,9 @@ export const MyForm: React.FC = () => {
           Add
         </button>
         <button
-          className="border-2 border-blue-500 text-blue-500 px-4 py-2 rounded-md"
+          className="border-2 border-blue-500 text-blue-500 px-4 py-2 rounded-md disabled:cursor-not-allowed"
           onClick={submitValue}
+          disabled={!arrayData.length}
         >
           Submit
         </button>
